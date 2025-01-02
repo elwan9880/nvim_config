@@ -1,9 +1,13 @@
 return {
   'neovim/nvim-lspconfig',
   config = function()
-    require('lspconfig').clangd.setup {
-      cmd = {"/usr/bin/clangd", "--compile-commands-dir=/usr/local/google/home/ctshao"}
-    }
+    lspconfig = require('lspconfig')
+    lspconfig.clangd.setup ({
+        cmd = {"/usr/bin/clangd", "--compile-commands-dir=/usr/local/google/home/ctshao"},
+        on_attach = function(client, bufnr)
+            vim.bo[bufnr].formatexpr = nil
+        end,
+    })
 
     vim.api.nvim_set_keymap('n', '<leader>dd', '', {
       noremap = true,
