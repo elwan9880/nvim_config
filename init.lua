@@ -15,6 +15,8 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.tabstop = 2
 vim.opt.title = true
+vim.opt.colorcolumn = "100"
+vim.opt.textwidth=100
 
 -- Syntax highlighting
 vim.opt.syntax = 'on'
